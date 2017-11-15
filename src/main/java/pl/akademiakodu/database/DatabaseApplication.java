@@ -27,9 +27,9 @@ public class DatabaseApplication {
 
 			ShoppingCart koszyk1 = new ShoppingCart("koszyk1");
 
-			Product mleko = new Product("mleko");
-			Product chleb = new Product("chleb");
-			Product maslo =  new Product("maslo");
+			Product mleko = new Product("mleko", koszyk1);
+			Product chleb = new Product("chleb", koszyk1);
+			Product maslo =  new Product("maslo", koszyk1);
 
 			List<Product> products =new ArrayList<>();
 			products.add(mleko);
@@ -39,6 +39,10 @@ public class DatabaseApplication {
 			koszyk1.setProducts(products);
 
 			shoppingCartService.save(koszyk1);
+			/*productService.save(mleko);
+			productService.save(chleb);
+			productService.save(maslo);*/
+
 
 
 		});

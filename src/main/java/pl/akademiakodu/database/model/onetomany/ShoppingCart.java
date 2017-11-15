@@ -1,5 +1,6 @@
 package pl.akademiakodu.database.model.onetomany;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +16,7 @@ public class ShoppingCart {
 
     private String name;
 
-    @OneToMany(mappedBy = "shoppingCart")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
     private List<Product> products;
 
     protected ShoppingCart() {
