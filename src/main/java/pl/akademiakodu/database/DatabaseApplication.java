@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.akademiakodu.database.model.onetomany.Product;
 import pl.akademiakodu.database.model.onetomany.ShoppingCart;
+import pl.akademiakodu.database.model.onetoone.Address;
+import pl.akademiakodu.database.model.onetoone.User;
+import pl.akademiakodu.database.repository.UserRepository;
 import pl.akademiakodu.database.service.ProductService;
 import pl.akademiakodu.database.service.ShoppingCartService;
 
@@ -21,7 +24,7 @@ public class DatabaseApplication {
 
 
 	@Bean
-	public CommandLineRunner runWithDb(ShoppingCartService shoppingCartService, ProductService productService){
+	public CommandLineRunner runWithDb(ShoppingCartService shoppingCartService, UserRepository userRepository){
 		return (args -> {
 
 			ShoppingCart koszyk1 = buildShoppingCartWithProducts("koszyk1", "mleko", "chleb", "maslo");
@@ -31,7 +34,11 @@ public class DatabaseApplication {
 			shoppingCartService.save(koszyk2);
 
 
+			User zenek = new User("zenek");
+			Address address = new Address("Grodzka", "AirPolluted", zenek);
+			zenek.setAddress(address);
 
+			userRepository.save(zenek);
 
 		});
 	}
