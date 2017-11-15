@@ -17,7 +17,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "shoppingCart_id")
-    private ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCartField;
 
     protected Product() {
     }
@@ -26,9 +26,9 @@ public class Product {
         this.name = name;
     }
 
-    public Product(String name, ShoppingCart shoppingCart) {
+    public Product(String name, ShoppingCart shoppingCartField) {
         this.name = name;
-        this.shoppingCart = shoppingCart;
+        this.shoppingCartField = shoppingCartField;
     }
 
     public Long getId() {
@@ -47,11 +47,11 @@ public class Product {
         this.name = name;
     }
 
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
+    public ShoppingCart getShoppingCartField() {
+        return shoppingCartField;
     }
 
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
+    public void setShoppingCartField(ShoppingCart shoppingCartField) {
+        this.shoppingCartField = shoppingCartField;
     }
 }

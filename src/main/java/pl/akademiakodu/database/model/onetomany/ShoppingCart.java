@@ -16,7 +16,7 @@ public class ShoppingCart {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoppingCart")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shoppingCartField")
     private List<Product> products;
 
     protected ShoppingCart() {

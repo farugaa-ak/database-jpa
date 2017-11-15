@@ -1,6 +1,7 @@
 package pl.akademiakodu.database.model.onetoone;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @Embedded
+    private Contact contact;
 
     protected User() {
     }
@@ -53,5 +57,13 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }
