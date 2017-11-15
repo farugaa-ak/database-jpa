@@ -22,6 +22,10 @@ public class Product {
     protected Product() {
     }
 
+    public Product(String name) {
+        this.name = name;
+    }
+
     public Product(String name, ShoppingCart shoppingCart) {
         this.name = name;
         this.shoppingCart = shoppingCart;
